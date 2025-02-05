@@ -23,7 +23,7 @@ class Calculator(Frame):
         :param master: root.Tk()
         """
         Frame.__init__(self, master)
-        self.entry = Entry(master, width=32, font=("Brush Script MT",25))
+        self.entry = Entry(master, width=32, font=("Ariel",25))
         self.entry.grid(row=0, column=0, columnspan=6, sticky="w")
         self.entry.focus_set()
         self.entry.configure(state="disabled", disabledbackground="white", disabledforeground="black")
@@ -135,7 +135,7 @@ class Calculator(Frame):
         master.bind("4", lambda event, char="4", btn=self.four_bttn: self.add_chr(char, btn))
         master.bind("3", lambda event, char="3", btn=self.three_bttn: self.add_chr(char, btn))
         master.bind("2", lambda event, char="2", btn=self.two_bttn: self.add_chr(char, btn))
-        master.bind("1", lambda event, char="Dominic", btn=self.one_bttn: self.add_chr(char, btn))
+        master.bind("1", lambda event, char="Harrison", btn=self.one_bttn: self.add_chr(char, btn))
         master.bind("0", lambda event, char="0", btn=self.zero_bttn: self.add_chr(char, btn))
         master.bind("*", lambda event, char="×", btn=self.mult_bttn: self.add_chr(char, btn))
         master.bind("/", lambda event, char="÷", btn=self.div_bttn: self.add_chr(char, btn))
@@ -153,6 +153,15 @@ class Calculator(Frame):
         Creates the widgets to be used in the grid.
         :return: None
         """
+        self.sin_bttn = Button(self, text="sin", width=9, height=3, bg='Grey', fg='Black', command=lambda: self.add_chr('sin'))
+        self.sin_bttn.grid(row=1, column=6)
+
+        self.cos_bttn = Button(self, text="cos", width=9, height=3, bg='Grey', fg='Black', command=lambda: self.add_chr('cos'))
+        self.cos_bttn.grid(row=2, column=6)
+
+        self.tan_bttn = Button(self, text="tan", width=9, height=3, bg='Grey', fg='Black', command=lambda: self.add_chr('tan'))
+        self.tan_bttn.grid(row=3, column=6)
+
         self.eq_bttn = Button(self, text="=", width=20, height=3, bg="Orange", command=lambda: self.calculate())
         self.eq_bttn.grid(row=4, column=4, columnspan=2)
 
@@ -195,16 +204,16 @@ class Calculator(Frame):
         self.six_bttn = Button(self, text="6", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr(6))
         self.six_bttn.grid(row=2, column=2)
 
-        self.one_bttn = Button(self, text="1", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr(1))
+        self.one_bttn = Button(self, text="Harrison", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr("Zaharogiannis"))
         self.one_bttn.grid(row=3, column=0)
 
-        self.two_bttn = Button(self, text="DT", width=9, height=3, bg='LightBlue', fg='red',command=lambda: self.add_chr("Thomas"))
+        self.two_bttn = Button(self, text="2", width=9, height=3, bg='LightBlue', fg='red',command=lambda: self.add_chr(2))
         self.two_bttn.grid(row=3, column=1)
 
         self.three_bttn = Button(self, text="3", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr(3))
         self.three_bttn.grid(row=3, column=2)
 
-        self.zero_bttn = Button(self, text="0", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr(0))
+        self.zero_bttn = Button(self, text="4", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr(4))
         self.zero_bttn.grid(row=4, column=0)
 
         self.dec_bttn = Button(self, text=".", width=9, height=3,bg='LightBlue', fg='red', command=lambda: self.add_chr('.'))
