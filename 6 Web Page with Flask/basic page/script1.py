@@ -15,7 +15,7 @@ def greet():
     inputName = request.form['myName']
     ip = request.remote_addr
     #write data to file or to DB
-    inputName = inputName.upper()+" hi!  Visiting from " + str(ip)
+    inputName = inputName.upper()+" !  Visiting from " + str(ip)
     return render_template("home.html",myName=inputName)
 
 @app.route('/')
@@ -25,6 +25,10 @@ def home():
 @app.route('/about/')
 def about():
     return render_template("about.html")
+
+@app.route('/harrison/')
+def harrison():
+    return render_template("zaharogiannis.html")
 
 if __name__=="__main__":
     app.run(debug=True)
